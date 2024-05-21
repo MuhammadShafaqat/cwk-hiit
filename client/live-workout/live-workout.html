@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Workout</title>
+    <script defer src='./live-workout.js'></script>
+    <link rel="stylesheet" type="text/css" href="./live-workout.css" />
+</head>
+
+<body>
+    <h1 id='editable-name'>Program Name</h1>
+    <h1 id='finish-workout' >
+        <button type="submit" id="submit-button">Finish</button>
+    </h1>
+    <p>Timer: <span id='edit-time'>time</span> </p>
+    <div style="display: flex;">
+        <button id='pause-timer'>Pause</button>
+        <button id='resume-timer'>Resume</button>
+    </div>
+
+    <!-- Existing workouts sections -->
+    <p id='squat' style="display: none;">Squat</p>
+    <section id='workout-board-squat' class="workout-board" style="display: none;">
+        <table id="squat-rows">
+            <tr>
+                <th>Set</th>
+               
+                <th>(+kg)</th>
+                <th>Reps</th>
+                <th>description</th>
+                <th></th>
+            </tr>
+            <tr>
+                <td>1</td>
+             
+                <td><input type='text' id='set-1-squat' required></td>
+                <td><input type='text' id='set-2-squat' required></td>
+                <td><input type='text' id='set-4-squat' required></td>
+                <td><input type='checkbox' id='set-3-squat' checked></td>
+            </tr>
+        </table>
+        <button id='add-set-squat'>Add Set</button>
+    </section>
+
+    <p id='lunge' style="display: none;">Lunges</p>
+    <section id='workout-board-lunges' class="workout-board" style="display: none;">
+        <table id="lunges-rows">
+            <tr>
+                <th>Set</th>
+               
+                <th>(+kg)</th>
+                <th>Reps</th>
+                <th>description</th>
+                <th></th>
+            </tr>
+            <tr>
+                <td>1</td>
+              
+                <td><input type='text' id='set-1-lunges' required></td>
+                <td><input type='text' id='set-2-lunges' required></td>
+                <td><input type='text' id='set-4-lunges' required></td>
+
+                <td><input type='checkbox' id='set-3-lunges' checked></td>
+            </tr>
+        </table>
+        <button id='add-set-lunges'>Add Set</button>
+    </section>
+
+    <p id='bicep-curls' style="display: none;">Bicep Curls</p>
+    <section id='workout-board-bicep-curls' class="workout-board" style="display: none;">
+        <table id="bicep-curls-rows">
+            <tr>
+                <th>Set</th>
+           
+                <th>(+kg)</th>
+                <th>Reps</th>
+                <th>description</th>
+                <th></th>
+            </tr>
+            <tr>
+                <td>1</td>
+              
+                <td><input type='text' id='set-1-bicep-curls' required></td>
+                <td><input type='text' id='set-2-bicep-curls' required></td>
+                <td><input type='text' id='set-4-bicep-curls' required></td>
+                <td><input type='checkbox' id='set-3-bicep-curls' checked></td>
+            </tr>
+        </table>
+        <button id='add-set-bicep-curls'>Add Set</button>
+    </section>
+
+    <!-- Predefined workout selection section -->
+    <section>
+        <label>Add Workout</label>
+        <select id='add-workout'>
+            <option></option>
+            <option value="squat">Squat</option>
+            <option value="lunges">Lunges</option>
+            <option value="bicep-curls">Bicep Curls</option>
+            <option value="work">Work</option>
+        </select>
+    </section>
+
+    <!-- New workout creation section -->
+    <section>
+        <label>Add New Workout</label>
+        <input type="text" id="new-workout-name" placeholder="Enter workout name" />
+        <button id="add-new-workout">Add Workout</button>
+    </section>
+
+    <!-- Placeholder for dynamically added workouts -->
+    <div id="workout-container"></div>
+
+</body>
+
+</html>
