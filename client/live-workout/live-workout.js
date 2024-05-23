@@ -5,6 +5,18 @@
  let isPaused = false;
  let currentWorkout = null;
 
+
+ document.addEventListener('DOMContentLoaded', () => {
+    // Retrieve the value from localStorage
+    const goal = localStorage.getItem('goal');
+
+    // Update the Program Name element
+    const programNameElement = document.getElementById('editable-name');
+    if (goal) {
+        programNameElement.textContent = goal; // Set the content to the retrieved value
+    }
+});
+
  // DOM elements
  const edit = document.querySelector('#edit-time');
  const pause = document.querySelector('#pause-timer');
