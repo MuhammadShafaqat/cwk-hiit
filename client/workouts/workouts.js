@@ -25,7 +25,6 @@ function populateWorkoutContainers(workoutData) {
     }, {});
 
     for (const [workoutType, workouts] of Object.entries(groupedData)) {
-        // Check if all keys have values
         const allKeysHaveValues = workouts.every(workout => {
             return Object.values(workout).every(value => value);
         });
@@ -41,23 +40,18 @@ function populateWorkoutContainers(workoutData) {
             const headers = document.createElement('div');
             headers.classList.add('workout-headers');
             headers.innerHTML = `
-                <div class="header">Weight</div>
-                <div class="header">Reps</div>
                 <div class="header">Description</div>
-                <div class="header">Session Time</div>
+                <div class="header">Session Time (seconds)</div>
             `;
             container.appendChild(headers);
 
             workouts.forEach(workout => {
-                // Check if all values are not empty
                 const allValuesNotEmpty = Object.values(workout).every(value => value);
 
                 if (allValuesNotEmpty) {
                     const details = document.createElement('div');
                     details.classList.add('workout-details');
                     details.innerHTML = `
-                        <div>${workout.weight}</div>
-                        <div>${workout.reps}</div>
                         <div>${workout.description}</div>
                         <div>${workout.sessionTime}</div>
                     `;

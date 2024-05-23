@@ -26,31 +26,24 @@ app.post('/users', (req, res) => {
         return res.status(400).send('Invalid data format');
     }
 
-    // Process each user entry in each workout type
+    // Process each workout entry
     for (const workoutType in data) {
-        if (Array.isArray(data[workoutType])) {
-            data[workoutType].forEach(rowData => {
-                const { weight, reps, description, checked, sessionTime } = rowData;
+        const { description, time: sessionTime } = data[workoutType];
 
-                // Validate the object structure
-                if (typeof weight !== 'string' || typeof reps !== 'string' || typeof description !== 'string' || typeof checked !== 'string' || typeof sessionTime !== 'string') {
-                    console.error('Invalid data format in row:', rowData);
-                    return;
-                }
-
-                // Create the user entry in the database
-                createUsers(weight, reps, description, checked, workoutType, sessionTime, (err, data) => {
-                    if (err) {
-                        console.error('Error creating user:', err.message);
-                    } else {
-                        console.log(`User added with ID: ${data.id}, Weight: ${weight}, Reps: ${reps}, Description: ${description}, Checked: ${checked}, WorkoutType: ${workoutType}, SessionTime: ${sessionTime}`);
-                    }
-                });
-            });
-        } else {
+        // Validate the object structure
+        if (typeof description !== 'string' || typeof sessionTime !== 'string') {
             console.error('Invalid data format for workout type:', workoutType);
             return res.status(400).send('Invalid data format');
         }
+
+        // Create the user entry in the database
+        createUsers(description, workoutType, sessionTime, (err, userData) => {
+            if (err) {
+                console.error('Error creating user:', err.message);
+            } else {
+                console.log(`User added with ID: ${userData.id}, WorkoutType: ${workoutType}, Description: ${description}, SessionTime: ${sessionTime}`);
+            }
+        });
     }
 
     res.status(201).send('Users added successfully');

@@ -8,12 +8,9 @@ const database = new sqlite3.Database('mydatabase.db', (err) => {
         console.log('Connected to database');
         database.run(`CREATE TABLE IF NOT EXISTS users (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
-            weight TEXT,
-            reps TEXT,
             description TEXT,
-            checked TEXT,
-            sessionTime TEXT,
-            workoutType TEXT
+            workoutType TEXT,
+            sessionTime TEXT
         )`, (err) => {
             if (err) {
                 console.error('Error creating users table:', err.message);

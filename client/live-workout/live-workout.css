@@ -1,7 +1,7 @@
 /* General styling */
 body {
     font-family: Arial, sans-serif;
-    background-color: #f9f9f9;
+    background-color: #f5f5f5; /* Light grey */
     margin: 0;
     padding: 0;
     display: flex;
@@ -17,13 +17,13 @@ body {
 
 h1 {
     text-align: center;
-    color: #333;
+    color: #333; /* Dark grey */
     margin: 20px 0;
 }
 
 p {
     margin-bottom: 10px;
-    color: #666;
+    color: #666; /* Grey */
 }
 
 button {
@@ -31,135 +31,71 @@ button {
     font-size: 16px;
     border: none;
     border-radius: 5px;
-    background-color: #007bff;
-    color: #fff;
+    background-color: #007bff; /* Blue */
+    color: #fff; /* White */
     cursor: pointer;
     transition: background-color 0.3s;
 }
 
 button:hover {
-    background-color: #0056b3;
+    background-color: #0056b3; /* Darker blue */
 }
 
 /* Sections styling */
-section {
+#predefined-workouts {
     margin-bottom: 20px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.workout-description {
     padding: 20px;
-    border: 1px solid #ddd;
     border-radius: 10px;
+    background-color: #fff; /* White */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Light shadow */
+    text-align: center;
+}
+
+.workout-description h1 {
+    color: #4CAF50; /* Green */
+}
+
+.workout-description p {
+    color: #333; /* Dark grey */
+}
+
+#workout-container {
+    margin-bottom: 20px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    text-align: center;
-    background-color: #fff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Select box styling */
-select {
+/* Input styling */
+input[type="text"], input[type="number"] {
     width: calc(100% - 20px);
-    padding: 10px;
-    font-size: 16px;
-    border: 2px solid #007bff;
+    display: inline-block;
+    padding: 8px;
+    border: 1px solid #ddd; /* Light grey */
     border-radius: 5px;
-    background-color: #fff;
-    color: #333;
-    cursor: pointer;
-    margin-bottom: 20px;
-}
-
-/* Labels styling */
-label {
-    font-weight: bold;
-    color: #333;
-    font-size: 18px;
+    transition: border-color 0.3s;
     margin-bottom: 10px;
 }
 
-/* Table styling */
-table {
-    width: 100%;
-    margin: auto;
-    border-collapse: collapse;
-    table-layout: fixed;
-}
-
-th, td {
-    font-size: 14px !important;
-    padding: 10px;
-    text-align: center;
-    border: 1px solid #ddd;
-}
-
-th {
-    background-color: #f2f2f2;
-}
-
-/* Style input[type="text"] */
-input[type="text"] {
-    width: calc(100% - 10px);
-    display: inline-block;
-    padding: 8px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    transition: border-color 0.3s;
-}
-
-input[type="text"]:focus {
-    border-color: #007bff;
+input[type="text"]:focus, input[type="number"]:focus {
+    border-color: #007bff; /* Blue */
     outline: none;
-}
-
-/* Style input[type="checkbox"] */
-input[type="checkbox"] {
-    width: 25px;
-    height: 25px;
-}
-
-/* checkout inputs css effects */
-#set-3-comp {
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
 }
 
 /* Responsive styles */
 @media (max-width: 768px) {
-    table {
-        width: 100%;
-    }
-
-    th, td {
-        font-size: 12px !important;
-        padding: 8px;
-    }
-
-    input[type="text"] {
+    input[type="text"], input[type="number"] {
         width: calc(100% - 8px);
-    }
-
-    input[type="checkbox"] {
-        width: 20px;
-        height: 20px;
     }
 }
 
 @media (max-width: 480px) {
-    table {
-        width: 100%;
-    }
-
-    th, td {
-        font-size: 10px !important;
-        padding: 6px;
-    }
-
-    input[type="text"] {
+    input[type="text"], input[type="number"] {
         width: calc(100% - 6px);
-    }
-
-    input[type="checkbox"] {
-        width: 18px;
-        height: 18px;
     }
 }

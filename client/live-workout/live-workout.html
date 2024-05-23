@@ -11,107 +11,50 @@
 
 <body>
     <h1 id='editable-name'>Program Name</h1>
-    <h1 id='finish-workout' >
+    <h1 id='finish-workout'>
         <button type="submit" id="submit-button">Finish</button>
     </h1>
-    <p>Timer: <span id='edit-time'>time</span> </p>
+    <p>Timer: <span id='edit-time'>0:0:0</span> </p>
     <div style="display: flex;">
         <button id='pause-timer'>Pause</button>
         <button id='resume-timer'>Resume</button>
     </div>
 
-    <!-- Existing workouts sections -->
-    <p id='squat' style="display: none;">Squat</p>
-    <section id='workout-board-squat' class="workout-board" style="display: none;">
-        <table id="squat-rows">
-            <tr>
-                <th>Set</th>
-               
-                <th>(+kg)</th>
-                <th>Reps</th>
-                <th>description</th>
-                <th></th>
-            </tr>
-            <tr>
-                <td>1</td>
-             
-                <td><input type='text' id='set-1-squat' required></td>
-                <td><input type='text' id='set-2-squat' required></td>
-                <td><input type='text' id='set-4-squat' required></td>
-                <td><input type='checkbox' id='set-3-squat' checked></td>
-            </tr>
-        </table>
-        <button id='add-set-squat'>Add Set</button>
-    </section>
-
-    <p id='lunge' style="display: none;">Lunges</p>
-    <section id='workout-board-lunges' class="workout-board" style="display: none;">
-        <table id="lunges-rows">
-            <tr>
-                <th>Set</th>
-               
-                <th>(+kg)</th>
-                <th>Reps</th>
-                <th>description</th>
-                <th></th>
-            </tr>
-            <tr>
-                <td>1</td>
-              
-                <td><input type='text' id='set-1-lunges' required></td>
-                <td><input type='text' id='set-2-lunges' required></td>
-                <td><input type='text' id='set-4-lunges' required></td>
-
-                <td><input type='checkbox' id='set-3-lunges' checked></td>
-            </tr>
-        </table>
-        <button id='add-set-lunges'>Add Set</button>
-    </section>
-
-    <p id='bicep-curls' style="display: none;">Bicep Curls</p>
-    <section id='workout-board-bicep-curls' class="workout-board" style="display: none;">
-        <table id="bicep-curls-rows">
-            <tr>
-                <th>Set</th>
-           
-                <th>(+kg)</th>
-                <th>Reps</th>
-                <th>description</th>
-                <th></th>
-            </tr>
-            <tr>
-                <td>1</td>
-              
-                <td><input type='text' id='set-1-bicep-curls' required></td>
-                <td><input type='text' id='set-2-bicep-curls' required></td>
-                <td><input type='text' id='set-4-bicep-curls' required></td>
-                <td><input type='checkbox' id='set-3-bicep-curls' checked></td>
-            </tr>
-        </table>
-        <button id='add-set-bicep-curls'>Add Set</button>
-    </section>
-
-    <!-- Predefined workout selection section -->
-    <section>
-        <label>Add Workout</label>
-        <select id='add-workout'>
-            <option></option>
-            <option value="squat">Squat</option>
-            <option value="lunges">Lunges</option>
-            <option value="bicep-curls">Bicep Curls</option>
-            <option value="work">Work</option>
-        </select>
+    <section id="predefined-workouts">
+        <div id='squat' class="workout-description" style="display: none;">
+            <h1>Squat</h1>
+            <p>Squat: Keep your back straight and bend your knees to lower your body.</p>
+            <p class="workout-timer" data-time="30"></p>
+        </div>
+        <div id='lunge' class="workout-description" style="display: none;">
+            <h1>Lunges</h1>
+            <p>Lunges: Step forward and lower your hips until both knees are bent at about 90 degrees.</p>
+            <p class="workout-timer" data-time="30"></p>
+        </div>
+        <div id='bicep-curls' class="workout-description" style="display: none;">
+            <h1>Bicep Curls</h1>
+            <p>Bicep Curls: Lift the weight by curling your arm while keeping your upper arm stationary.</p>
+            <p class="workout-timer" data-time="30"></p>
+        </div>
+        <div id='rest' class="workout-description" style="display: none;">
+            <h1>Rest Moment</h1>
+            <p>Take a 10-second break to rest.</p>
+            <p class="workout-timer" data-time="10"></p>
+        </div>
     </section>
 
     <!-- New workout creation section -->
-    <section>
+    <section id="new-workout-section" style="display: none;">
         <label>Add New Workout</label>
         <input type="text" id="new-workout-name" placeholder="Enter workout name" />
+        <input type="text" id="new-workout-description" placeholder="Enter workout description" />
+        <input type="number" id="new-workout-time" placeholder="Enter workout time in seconds" />
         <button id="add-new-workout">Add Workout</button>
     </section>
 
     <!-- Placeholder for dynamically added workouts -->
     <div id="workout-container"></div>
+
 
 </body>
 

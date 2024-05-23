@@ -1,34 +1,30 @@
 const database = require('./database');
 
-const createUsers = (weight, reps, description, checked, workoutType, sessionTime, callback) => {
-    console.log('Creating user with weight:', weight, 'reps:', reps, 'checked:', checked, 'description:', description, 'workoutType:', workoutType, 'sessionTime:', sessionTime);
+const createUsers = (description, workoutType, sessionTime, callback) => {
+    console.log('Creating user with description:', description, 'workoutType:', workoutType, 'sessionTime:', sessionTime);
 
-    const sql = `INSERT INTO users (weight, reps, description, checked, workoutType, sessionTime) VALUES (?, ?, ?, ?, ?, ?)`;
-    database.run(sql, [weight, reps, description, checked, workoutType, sessionTime], function (err) {
+    const sql = `INSERT INTO users (description, workoutType, sessionTime) VALUES (?, ?, ?)`;
+    database.run(sql, [description, workoutType, sessionTime], function (err) {
         if (err) {
             console.error('Error inserting user:', err.message);
             callback(err, null);
         } else {
             console.log('User inserted successfully with ID:', this.lastID);
-            callback(null, { id: this.lastID, weight, reps, description, checked, workoutType, sessionTime });
+            callback(null, { id: this.lastID, description, workoutType, sessionTime });
         }
     });
 };
 
 const readUsers = (callback) => {
-    const sql = `SELECT id, weight, reps, description, checked, workoutType, sessionTime FROM users`;
+    const sql = `SELECT id, description, workoutType, sessionTime FROM users`;
     database.all(sql, [], (err, rows) => {
         if (err) {
             console.error('Error reading users:', err.message);
             callback(err, null);
         } else {
-            // Format rows into the desired pattern
             const users = rows.map(row => ({
                 id: row.id,
-                weight: row.weight,
-                reps: row.reps,
                 description: row.description,
-                checked: row.checked,
                 workoutType: row.workoutType,
                 sessionTime: row.sessionTime
             }));
