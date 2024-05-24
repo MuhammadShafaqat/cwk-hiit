@@ -1,0 +1,80 @@
+/* Resetting default margin and padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body styles */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f2f2f2;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Ensures that the footer sticks to the bottom */
+    align-items: center;
+}
+
+/* Header styles */
+#logo {
+    display: block;
+    max-width: 50%;
+    height: 90px;
+    margin: 5px auto;
+}
+
+/* Main content styles */
+h1 {
+    text-align: center;
+    margin: 20px 0;
+}
+
+section {
+    text-align: center;
+    margin: 20px 0;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+}
+
+/* Footer styles */
+.footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    margin-top: auto; 
+ position: fixed;   
+ bottom: 0;
+ width: 100%;
+}
+
+.menu {
+    color: #fff;
+    text-decoration: none;
+}
+
+.menu:hover {
+    text-decoration: underline;
+}
+
+/* Media queries for mobile responsiveness */
+@media screen and (max-width: 768px) {
+    /* Adjustments for smaller screens */
+    h1 {
+        font-size: 24px;
+    }
+    
+    button {
+        padding: 8px 16px;
+        font-size: 14px;
+    }
+}
