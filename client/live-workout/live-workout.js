@@ -148,7 +148,9 @@ async function prepareAndSendData(event) {
 
     // Collect dynamically added workouts data
     document.querySelectorAll('#workout-container .workout-description').forEach(section => {
-        const workoutType = section.id.replace('workout-board-', '');
+        // const workoutType = section.id.replace('workout-board-', '')
+        const workoutType = section.id;
+
         const description = section.querySelector('p').innerText;
         const time = section.querySelector('.workout-timer').getAttribute('data-time'); // Retrieve time from data-time attribute
         if (workoutType !== 'rest') { // Exclude rest periods
@@ -192,7 +194,8 @@ function addNewWorkout() {
 
     newWorkoutSection.style.display = 'none';
 
-    const workoutName = newWorkoutNameInput.value.trim().toLowerCase().replace(/\s+/g, '-');
+    // const workoutName = newWorkoutNameInput.value.trim().toLowerCase().replace(/\s+/g, '-');
+    const workoutName = newWorkoutNameInput.value.trim().toLowerCase();
     const workoutDescription = newWorkoutDescriptionInput.value.trim();
     const workoutTime = parseInt(newWorkoutTimeInput.value.trim());
 
@@ -208,7 +211,7 @@ function addNewWorkout() {
     }
 
     const workoutSection = document.createElement('div');
-    workoutSection.id = `workout-board-${workoutName}`;
+    workoutSection.id = `${workoutName}`;
     workoutSection.className = 'workout-description';
     workoutSection.style.display = 'none';
     workoutSection.innerHTML = `
