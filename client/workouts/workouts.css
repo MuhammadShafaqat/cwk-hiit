@@ -62,13 +62,13 @@ h1 {
     text-align: center;
     color: #c52c8d;
     text-transform: uppercase;
-    font-size: .6em;
+    font-size: 1.3em;
 }
 
 .workout-details div {
     width: 50%;
     text-align: center;
-    font-size: 0.9em;
+    font-size: .9em;
     color: #333;
 }
 
